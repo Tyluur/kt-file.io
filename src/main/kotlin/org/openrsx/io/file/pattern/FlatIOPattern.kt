@@ -15,6 +15,7 @@ abstract class FlatIOPattern : IOPattern() {
      * The instance of the mapper for flat file storage patterns
      */
     abstract val mapper: ObjectMapper
+
     override fun <T : Any> save(data: T, path: String): Boolean {
         return try {
             mapper.writeValue(Paths.get(path).toFile(), data)

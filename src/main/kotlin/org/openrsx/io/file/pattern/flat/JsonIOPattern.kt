@@ -1,23 +1,24 @@
-package org.openrsx.io.file.pattern
+package org.openrsx.io.file.pattern.flat
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import org.openrsx.io.file.pattern.FlatIOPattern
 
 /**
  * @author Tyluur <itstyluur@icloud.com>
- * @since September 13, 2022
+ * @since November 06, 2022
  */
-class YamlIOPattern : FlatIOPattern() {
+class JsonIOPattern : FlatIOPattern() {
 
     /**
-     * The instance of an object mapper for YAML Files
+     * The instance of the mapper for json files
      */
-    override val mapper: ObjectMapper = ObjectMapper(YAMLFactory())
+    override val mapper: ObjectMapper = ObjectMapper(JsonFactory())
 
     /**
      * Initial dependencies for the storage pattern
@@ -25,6 +26,7 @@ class YamlIOPattern : FlatIOPattern() {
     init {
         with(mapper) {
             registerKotlinModule()
+            findAndRegisterModules()
 
             writerWithDefaultPrettyPrinter()
 

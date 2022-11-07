@@ -1,0 +1,7 @@
+{
+  "name" : "test",
+  "map" : {
+    "first" : 1,
+    "second" : 2
+  }
+}

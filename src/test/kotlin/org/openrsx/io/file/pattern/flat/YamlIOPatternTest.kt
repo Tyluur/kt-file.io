@@ -1,9 +1,10 @@
-package org.openrsx.io.file.pattern
+package org.openrsx.io.file.pattern.flat
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import java.nio.file.Paths
 
 /**
  * @author Tyluur <itstyluur@icloud.com>
@@ -12,9 +13,14 @@ import org.junit.jupiter.api.Assertions.*
 internal class YamlIOPatternTest {
 
     /**
+     * The pattern used for storage in this test case - specifically yaml
+     */
+    private val pattern = YamlIOPattern()
+
+    /**
      * Path to read from
      */
-    private val path = "./output.yml"
+    private val path = "${Paths.get("src", "test", "resources")}/yaml-test-output.yml"
 
     @Test
     fun save() {
@@ -35,11 +41,6 @@ internal class YamlIOPatternTest {
 
         assertTrue(dataRead != null)
     }
-
-    /**
-     * The pattern used to save
-     */
-    private val pattern = YamlIOPattern()
 
     /**
      * The data used to save in this test
