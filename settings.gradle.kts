@@ -1,1 +1,1 @@
-rootProject.name = "file-management"
+rootProject.name = "kt-file.io-api"
