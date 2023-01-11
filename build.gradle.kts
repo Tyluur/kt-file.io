@@ -10,6 +10,8 @@ plugins {
 group = "org.openrsx"
 version = "1.0-SNAPSHOT"
 
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
 repositories {
     mavenCentral()
 }
@@ -17,20 +19,20 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 
-    // Logging
-    implementation("ch.qos.logback:logback-classic:1.2.3") {
+    implementation("ch.qos.logback:logback-classic:1.4.5") {
         exclude("org.slf4j", "slf4j-jdk14")
     }
+
     implementation("com.michael-bull.kotlin-inline-logger", "kotlin-inline-logger-jvm", "1.0.2")
 
     implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:$jacksonVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-paranamer:$jacksonVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:$jacksonVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-    implementation("com.teesoft", "jackson-dataformat-toml", "1.0")
 
     testImplementation(kotlin("test"))
 }

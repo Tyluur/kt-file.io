@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.dataformat.toml.TomlFactory
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.teesoft.jackson.dataformat.toml.TOMLMapper
 import org.openrsx.io.file.pattern.FlatIOPattern
 
 class TomllOPattern : FlatIOPattern() {
@@ -14,7 +14,7 @@ class TomllOPattern : FlatIOPattern() {
     /**
      * The object mapper for toml files
      */
-    override val mapper: ObjectMapper = TOMLMapper()
+    override val mapper: ObjectMapper = ObjectMapper(TomlFactory())
 
     /**
      * Initial dependencies for the storage pattern
