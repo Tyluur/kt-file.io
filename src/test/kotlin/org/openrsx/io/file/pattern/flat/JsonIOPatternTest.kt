@@ -1,6 +1,7 @@
 package org.openrsx.io.file.pattern.flat
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.github.michaelbull.logging.InlineLogger
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths
@@ -10,6 +11,11 @@ import java.nio.file.Paths
  * @since November 06, 2022
  */
 internal class JsonIOPatternTest {
+
+    /**
+     * The logger used to print logs for this test case
+     */
+    private val logger = InlineLogger()
 
     /**
      * The pattern used for storage in this test case - specifically json
@@ -32,6 +38,8 @@ internal class JsonIOPatternTest {
         val result = pattern.save(sample, path)
 
         assertTrue(result)
+
+        logger.debug { "Json unit test case complete" }
     }
 
     @Test
@@ -39,6 +47,8 @@ internal class JsonIOPatternTest {
         val dataRead = pattern.load<SampleData>(path)
 
         assertTrue(dataRead != null)
+
+        logger.info { "Data read from $path = $dataRead" }
     }
 
     /**
