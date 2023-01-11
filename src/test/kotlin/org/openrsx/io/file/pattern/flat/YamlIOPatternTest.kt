@@ -1,6 +1,7 @@
 package org.openrsx.io.file.pattern.flat
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.github.michaelbull.logging.InlineLogger
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
@@ -11,6 +12,11 @@ import java.nio.file.Paths
  * @since September 13, 2022
  */
 internal class YamlIOPatternTest {
+
+    /**
+     * The logger for this yaml unit test case
+     */
+    private val logger = InlineLogger()
 
     /**
      * The pattern used for storage in this test case - specifically yaml
@@ -33,6 +39,8 @@ internal class YamlIOPatternTest {
         val result = pattern.save(sample, path)
 
         assertTrue(result)
+
+        logger.info { "Save unit test case completed" }
     }
 
     @Test
@@ -40,6 +48,8 @@ internal class YamlIOPatternTest {
         val dataRead = pattern.load<SampleData>(path)
 
         assertTrue(dataRead != null)
+
+        logger.info { "Data read = $dataRead" }
     }
 
     /**
