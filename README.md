@@ -1,5 +1,5 @@
 # kt-file.io
-This library handles file management in a simplistic fashion.
+This library/wrapper handles file management in a simple fashion.
 
 ---
 
