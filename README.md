@@ -24,7 +24,9 @@ val pattern = YamlIOPattern()
 val dataRead = pattern.load<SampleData>(path)
 ```
 
-Refer to the [unit tests](https://github.com/Tyluur/kt-file.io/tree/main/src/test/kotlin/org/openrsx/io/file/pattern/flat) for more examples of I/O.
+Refer to the [unit tests](https://github.com/Tyluur/kt-file.io/tree/main/src/test/kotlin/org/openrsx/io/file/pattern/flat) for more examples of I/O
+
+### Supported
 
 - [JSON](https://github.com/Tyluur/kt-file.io-api/blob/main/src/test/kotlin/org/openrsx/io/file/pattern/flat/JsonIOPatternTest.kt)
 - [TOML](https://github.com/Tyluur/kt-file.io-api/blob/main/src/test/kotlin/org/openrsx/io/file/pattern/flat/TomllOPatternTest.kt)
