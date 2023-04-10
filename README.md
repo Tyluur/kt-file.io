@@ -1,6 +1,6 @@
 # kt-file.io
 
-> This library/wrapper handles file management elegantly.
+This library/wrapper handles file management elegantly.
 
 ---
 
